@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Deepfake Detector</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
+</head>
+<body>
+  <main class="container">
+    <h1>Deepfake Detector</h1>
+    <form action="/predict/" method="post" enctype="multipart/form-data">
+      <input type="file" name="file" accept="image/*,video/*" required>
+      <button type="submit">Analyze</button>
+    </form>
+
+    {% if error %}
+      <article class="contrast">{{ error }}</article>
+    {% endif %}
+
+    {% if prediction %}
+      <h3>Prediction: {{ prediction }}</h3>
+      <p>Probability Fake: {{ prob_fake|floatformat:3 }}</p>
+      {% if heatmap_url %}
+      <h4>Evidence (Grad-CAM)</h4>
+      <img src="{{ heatmap_url }}" alt="Grad-CAM heatmap" style="max-width:480px;" />
+      {% endif %}
+    {% endif %}
+  </main>
+</body>
+</html>
