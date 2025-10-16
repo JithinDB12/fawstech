@@ -1,0 +1,32 @@
+# Byte-compiled / cache
+__pycache__/
+*.py[cod]
+*.so
+
+# Virtual environments
+.venv/
+venv/
+ENV/
+
+# Logs and outputs
+logs/
+runs/
+checkpoints/
+outputs/
+media/
+uploads/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Django
+staticfiles/
+db.sqlite3
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Misc
+*.log
+
